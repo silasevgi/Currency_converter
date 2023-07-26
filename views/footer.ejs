@@ -1,0 +1,110 @@
+		
+			
+		<footer class="bg-light text-center text-lg-start">
+			<!-- Copyright -->
+			<div class="text-center p-3">
+				© 2023 Copyright
+				<a class="text-light" href="/home">DSES Finance</a>
+			</div>
+			<!-- Copyright -->
+		</footer>
+	
+		
+		
+		<script >
+			$(document).ready(function() {
+				const amountInput = $("#amount");
+				const firstOption = $("#firstCurrencyOption");
+				const secondOption = $("#secondCurrencyOption");
+				const resultInput = $("#result");
+			   
+				
+				class Currency {
+					constructor() {
+					  this.url = "https://api.freecurrencyapi.com/v1/latest?apikey=l6iXCMg55E7eDIeSJexWTvjtLTtS2eGJ0F8Uh86G&base_currency=";
+					}
+				  
+					exchange(amount, firstCurrency, secondCurrency) {
+					  return new Promise((resolve, reject) => {
+						fetch(`${this.url}${firstCurrency}`)
+						  .then(response => response.json())
+						  .then(result => {
+							const exchangedResult = amount * result.data[secondCurrency];
+							resolve(exchangedResult);
+						  })
+						  .catch(error => {
+							console.error("An error occurred during currency exchange:", error);
+							reject(error);
+						  });
+					  });
+					}
+				}
+				const currency = new Currency();
+				
+				runEventListeners();
+				
+				function runEventListeners() {
+				  amountInput.on("input", exchange);
+				  firstOption.on("change", exchange);
+				  secondOption.on("change", exchange);
+				}
+				
+				function exchange() {
+				  const amount = Number(amountInput.val().trim());
+				  const firstOptionValue = firstOption.find(":selected").text();
+				  const secondOptionValue = secondOption.find(":selected").text();
+				
+				  currency.exchange(amount, firstOptionValue, secondOptionValue)
+					.then(result => {
+					  resultInput.val(result.toFixed(3));
+					});
+				}
+				
+			 
+				
+			
+				  
+			  });
+			  
+			
+		</script>
+		<script>
+			const gold = $("#XAU");
+			const silver = $("#XAG");
+			const platinum = $("#XPT");
+			const palladium = $("#XPD"); 
+			const BTC = $("#BTC");
+			const LTC = $("#LTC");
+			const ETH = $("#ETH");
+			const DOGE = $("#DOGE");
+			$(document).ready(function() {
+				$.getJSON("https://api.metalpriceapi.com/v1/latest?api_key=a57d1d1c9a8044e64e3302336fdbe684&base=XAU&currencies=USD", function(data) {
+				  gold.html("$" + data.rates.USD.toFixed(2));
+				});
+			  
+				$.getJSON("https://api.metalpriceapi.com/v1/latest?api_key=a57d1d1c9a8044e64e3302336fdbe684&base=XAG&currencies=USD", function(data) {
+				  silver.html("$" + data.rates.USD.toFixed(2));
+				});
+			  
+				$.getJSON("https://api.metalpriceapi.com/v1/latest?api_key=a57d1d1c9a8044e64e3302336fdbe684&base=XPT&currencies=USD", function(data) {
+				  platinum.html("$" + data.rates.USD.toFixed(2));
+				});
+			  
+				$.getJSON("https://api.metalpriceapi.com/v1/latest?api_key=a57d1d1c9a8044e64e3302336fdbe684&base=XPD&currencies=USD", function(data) {
+				  palladium.html("$" + data.rates.USD.toFixed(2));
+				});
+			  
+				$.getJSON("http://api.coinlayer.com/live?access_key=e1c5ce2ab761b98f910d50ed4f2f5ee6", function(data) {
+				  BTC.html("$" + data.rates.BTC.toFixed(2));
+				  LTC.html("$" + data.rates.LTC.toFixed(2));
+				  ETH.html("$" + data.rates.ETH.toFixed(2));
+				  DOGE.html("$" + data.rates.DOGE.toFixed(2));
+				});
+			  });
+			  
+		</script>
+		
+	
+	</div>
+	</body>
+</html>

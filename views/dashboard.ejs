@@ -1,0 +1,217 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <title> Currency Converter | Foreign Exchange Rates | DSES Finance </title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+   <link rel="stylesheet" href="/stylesheets/main.css">
+   <link rel="stylesheet" href="/images">
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Static navbar -->
+    <div id="header">
+      <a href=""><img class="logo" src="/images/4.png" alt="Logo"></a> <!--Logo image-->
+     
+      <nav class="navigation">	
+        <a href="/home/profile">Profile</a>
+        <a href="/home/logout">Logout</a>
+    </nav>
+  
+      
+        
+        
+      
+
+  </div>
+  
+
+<div id="metals">
+
+	<div class="card " style="width: 14rem;   ">
+		<img class="card-img-top" src="/images/B.png" alt="Card image cap">
+		<div class="card-body">
+			<p class="card-text ">Bitcoin: <span id="BTC"></span></p>
+		</div>
+	</div>
+	<div class="card" style="width: 14rem;">
+		<img class="card-img-top" src="/images/LTC.jpg" alt="Card image cap">
+		<div class="card-body">
+			<p class="card-text">Litecoin: <span id="LTC"></span></p>
+		</div>
+	</div>
+	<div class="card" style="width: 14rem;">
+		<img class="card-img-top" src="/images/ETH.png" alt="Card image cap">
+		<div class="card-body">
+			<p class="card-text">Ethereum: <span id="ETH"></span> </p>
+		</div>
+	</div>
+	<div class="card" style="width: 14rem;">
+		<img class="card-img-top" src="/images/D.png" alt="Card image cap">
+		<div class="card-body">
+			<p class="card-text">Dogecoin: <span id="DOGE"></span> </p>
+		</div>
+	</div>
+
+	<div class="card " style="width: 14rem; ">
+		<img class="card-img-top" src="/images/gold2.jpg" alt="Card image cap">
+		<div class="card-body">
+			<p class="card-text ">Gold: <span id="XAU"></span></p>
+		</div>
+	</div>
+	<div class="card " style="width: 14rem;">
+		<img class="card-img-top" src="/images/silver.png" alt="Card image cap">
+		<div class="card-body">
+			<p class="card-text">Silver: <span id="XAG"></span></p>
+		</div>
+	</div>
+	<div class="card" style="width: 14rem;">
+		<img class="card-img-top" src="/images/platinum2.jpg" alt="Card image cap">
+		<div class="card-body">
+			<p class="card-text">Platinum: <span id="XPT"></span> </p>
+		</div>
+	</div>
+	<div class="card" style="width: 14rem;">
+		<img class="card-img-top" src="/images/palladium2.jpeg" alt="Card image cap">
+		<div class="card-body">
+			<p class="card-text">Palladium: <span id="XPD"></span> </p>
+		</div>
+
+	</div>
+</div>
+
+<div id="welcome">
+	<h1>*** Welcome  ***  </h1>
+</div>
+	
+<div id="dashboard-main">
+
+	<div class="header-wrapper ">
+		<h4>Currency Converter</h4>
+	</div>
+
+	<div class="content-wrapper ">
+		<input id="amount" type="number" placeholder="Amount" step="1">
+
+		<select id="firstCurrencyOption">
+
+			<option value="USD" selected>USD</option>
+			<option value="AED">AED</option>
+			<option value="ARS">ARS</option>
+			<option value="AUD">AUD</option>
+			<option value="BGN">BGN</option>
+			<option value="BRL">BRL</option>
+			<option value="BSD">BSD</option>
+			<option value="CAD">CAD</option>
+			<option value="CHF">CHF</option>
+			<option value="CLP">CLP</option>
+			<option value="CNY">CNY</option>
+			<option value="COP">COP</option>
+			<option value="CZK">CZK</option>
+			<option value="DKK">DKK</option>
+			<option value="DOP">DOP</option>
+			<option value="EGP">EGP</option>
+			<option value="EUR">EUR</option>
+			<option value="FJD">FJD</option>
+			<option value="GBP">GBP</option>
+			<option value="GTQ">GTQ</option>
+			<option value="HKD">HKD</option>
+			<option value="HRK">HRK</option>
+			<option value="HUF">HUF</option>
+			<option value="IDR">IDR</option>
+			<option value="ILS">ILS</option>
+			<option value="INR">INR</option>
+			<option value="ISK">ISK</option>
+			<option value="JPY">JPY</option>
+			<option value="KRW">KRW</option>
+			<option value="KZT">KZT</option>
+			<option value="MVR">MVR</option>
+			<option value="MXN">MXN</option>
+			<option value="MYR">MYR</option>
+			<option value="NOK">NOK</option>
+			<option value="NZD">NZD</option>
+			<option value="PAB">PAB</option>
+			<option value="PEN">PEN</option>
+			<option value="PHP">PHP</option>
+			<option value="PKR">PKR</option>
+			<option value="PLN">PLN</option>
+			<option value="PYG">PYG</option>
+			<option value="RON">RON</option>
+			<option value="RUB">RUB</option>
+			<option value="SAR">SAR</option>
+			<option value="SEK">SEK</option>
+			<option value="SGD">SGD</option>
+			<option value="THB">THB</option>
+			<option value="TRY">TRY</option>
+			<option value="TWD">TWD</option>
+			<option value="UAH">UAH</option>
+			<option value="UYU">UYU</option>
+			<option value="ZAR">ZAR</option>
+		</select>
+
+		<i class="fa-solid fa-arrow-right"></i>
+
+		<select id="secondCurrencyOption">
+
+			<option value="USD">USD</option>
+			<option value="AED">AED</option>
+			<option value="ARS">ARS</option>
+			<option value="AUD">AUD</option>
+			<option value="BGN">BGN</option>
+			<option value="BRL">BRL</option>
+			<option value="BSD">BSD</option>
+			<option value="CAD">CAD</option>
+			<option value="CHF">CHF</option>
+			<option value="CLP">CLP</option>
+			<option value="CNY">CNY</option>
+			<option value="COP">COP</option>
+			<option value="CZK">CZK</option>
+			<option value="DKK">DKK</option>
+			<option value="DOP">DOP</option>
+			<option value="EGP">EGP</option>
+			<option value="EUR">EUR</option>
+			<option value="FJD">FJD</option>
+			<option value="GBP">GBP</option>
+			<option value="GTQ">GTQ</option>
+			<option value="HKD">HKD</option>
+			<option value="HRK">HRK</option>
+			<option value="HUF">HUF</option>
+			<option value="IDR">IDR</option>
+			<option value="ILS">ILS</option>
+			<option value="INR">INR</option>
+			<option value="ISK">ISK</option>
+			<option value="JPY">JPY</option>
+			<option value="KRW">KRW</option>
+			<option value="KZT">KZT</option>
+			<option value="MVR">MVR</option>
+			<option value="MXN">MXN</option>
+			<option value="MYR">MYR</option>
+			<option value="NOK">NOK</option>
+			<option value="NZD">NZD</option>
+			<option value="PAB">PAB</option>
+			<option value="PEN">PEN</option>
+			<option value="PHP">PHP</option>
+			<option value="PKR">PKR</option>
+			<option value="PLN">PLN</option>
+			<option value="PYG">PYG</option>
+			<option value="RON">RON</option>
+			<option value="RUB">RUB</option>
+			<option value="SAR">SAR</option>
+			<option value="SEK">SEK</option>
+			<option value="SGD">SGD</option>
+			<option value="THB">THB</option>
+			<option value="TRY" selected>TRY</option>
+			<option value="TWD">TWD</option>
+			<option value="UAH">UAH</option>
+			<option value="UYU">UYU</option>
+			<option value="ZAR">ZAR</option>
+		</select>
+
+		<input type="number" id="result" placeholder="Result" readonly>
+	</div>
+</div>
+	
+
+
+<%- include footer %>

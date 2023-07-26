@@ -1,0 +1,213 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <title> Currency Converter | Foreign Exchange Rates | DSES Finance </title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+   <link rel="stylesheet" href="/stylesheets/main.css">
+   <link rel="stylesheet" href="/images">
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Static navbar -->
+    <div id="header">
+      <a href=""><img class="logo" src="/images/4.png" alt="Logo"></a> <!--Logo image-->
+     
+      <nav class="navigation">
+        <a href="/home/dashboard">Home</a>
+        <a href="/home/logout">Logout</a>
+    </nav>
+  
+      
+        
+  </div>
+  <div class="container profile">
+    <div class=" inf-content">
+        <div class="row">
+            <div class="col-1">
+              
+              <img alt="" style="width:200px;" title="" class="img-circle " src="/images/user.png" > 
+             <span class="head"><h1><strong>PROFILE</strong><br></h1>
+          </div>
+            <div class="col-12">
+              
+                <div class="">
+                <table class="table  table-user-information">
+              
+                    <tbody>
+                       <tr>
+                        <td></td>
+                        <td></td>
+                        <td> <td >
+                          <a class="edit_link" href="/edit_profile"><i class="fa-solid fa-pen-to-square fa-lg" style="color: #000000;"></i>Edit Profile</a>
+                        </td></td>
+                       </tr>
+                        <tr>    
+                            <td>
+                                <strong>
+                                   </span>    
+                                    Name:                                                
+                                </strong>
+                            </td>
+                            <td >
+                              <input name="first_name" class="edit"  type="text" readonly value="<%=data[0].first_name%> ">  
+                            </td>
+                           
+                        </tr>
+                        <tr>        
+                            <td>
+                                <strong>
+                                     
+                                    Last Name:                                                
+                                </strong>
+                            </td>
+                            <td >
+                              <input name="last_name" class="edit"  type="text" readonly value="<%=data[0].last_name%> ">  
+                            </td>
+                           
+                        </tr>
+    
+                        <tr>        
+                            <td>
+                                <strong>
+                                  
+                                    Email:                                               
+                                </strong>
+                            </td>
+                            <td>
+                              <input name="user_name" class="edit"  type="email" readonly value="<%=data[0].user_name%> ">  
+                            </td>
+                           
+                        </tr>
+    
+    
+                        <tr>        
+                            <td>
+                                <strong>
+                                   
+                                    Wallet:                                                
+                                </strong>
+                            </td>
+                            <td>
+                              <input name="wallet" class="edit"  type="tel" readonly value="<%=data[0].wallet%> TRY">  
+                              
+                            </td>
+                           
+                        </tr>
+                        <tr>        
+                            <td>
+                                <strong>
+                                  
+                                    Password:                                                
+                                </strong>
+                            </td>
+                            <td >
+                              <input name="password" class="edit"  type="password" readonly value="<%=data[0].password%> ">  
+                            </td>
+                           
+                        </tr>
+                                                           
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+                                    
+     	
+    <div id="profile-main">
+    
+      <div class="content-wrapper">
+        <div class="card-currency ">
+        <img class ="img-currency" src="/images/try2.jpg">
+        <label class="label-currency"for="try">TRY</label>
+        <i class="fa-solid fa-arrow-right fa-2xl" style="color: #000000;"></i>
+        <input class="currency" id="try" type="number" value="<%=data[0].wallet%>" readonly>
+       
+      </div>
+      
+        <div class="card-currency">
+        <img class ="img-currency" src="/images/eur2.jpg" alt="">
+        <label class="label-currency" for="eur">EUR</label>
+        <i class="fa-solid fa-arrow-right fa-2xl" style="color:#000000"></i>
+        <input class="currency" id="eur" type="number" readonly>
+      </div>
+       <div class="card-currency"> <img  class ="img-currency" src="/images/usd2.jpg" alt="">
+        <label class="label-currency" for="usd">USD</label>
+        <i class="fa-solid fa-arrow-right fa-2xl" style="color:#000000"></i>
+        <input class="currency" id="usd" type="number" readonly>
+      </div>
+    </div>
+    </div>
+  </div>  
+    <footer class="bg-light text-center text-lg-start">
+      <div class="text-center p-3">
+        © 2023 Copyright
+        <a class="text-light" href="/home">DSES Finance</a>
+      </div>
+    </footer>
+    
+
+    <script>
+      $(document).ready(function() {
+        const amount = $("#try");
+        const usd_result = $("#usd");
+        const eur_result = $("#eur");
+        const base_currency = "TRY";
+        const to_USD = "USD";
+        const to_EUR = "EUR";
+        let secondCurrency;
+    
+        class Currency {
+          constructor() {
+            this.url = "https://api.freecurrencyapi.com/v1/latest?apikey=l6iXCMg55E7eDIeSJexWTvjtLTtS2eGJ0F8Uh86G&base_currency=";
+          }
+    
+          exchange(amount, secondCurrency) {
+            return new Promise((resolve, reject) => {
+              fetch(`${this.url}${base_currency}`)
+                .then(response => response.json())
+                .then(result => {
+                  console.log(secondCurrency);
+                  const exchangedResult = amount * result.data[secondCurrency];
+    
+                  resolve(exchangedResult);
+                })
+                .catch(error => {
+                  console.error("An error occurred during currency exchange:", error);
+                  reject(error);
+                });
+            });
+          }
+        }
+    
+        const currency = new Currency();
+        const currency2 = new Currency();
+    
+        function exchange() {
+          const amount1 = Number(amount.val().trim());
+          const secondOptionValueEUR = "EUR";
+          const secondOptionValueUSD = "USD";
+          const firstOptionValue = "TRY";
+    
+          currency.exchange(amount1, secondOptionValueUSD)
+            .then(result => {
+              usd_result.val(result.toFixed(3));
+            });
+          currency2.exchange(amount1, secondOptionValueEUR)
+            .then(result => {
+              eur_result.val(result.toFixed(3));
+              console.log(result.toFixed(3));
+            });
+        }
+    
+        exchange();
+      });
+    </script>
+    
+		
+ 
+	</div>
+	</body>
+</html>

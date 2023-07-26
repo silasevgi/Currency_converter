@@ -1,0 +1,136 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <title> Currency Converter | Foreign Exchange Rates | DSES Finance </title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+   <link rel="stylesheet" href="/stylesheets/main.css">
+   <link rel="stylesheet" href="/images">
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Static navbar -->
+    <div id="header">
+      <a href=""><img class="logo" src="/images/4.png" alt="Logo"></a> <!--Logo image-->
+     
+      <nav class="navigation">
+        
+        <a href="/home/dashboard">Home</a>
+        <a href="/home/logout">Logout</a>
+    </nav>
+  
+      
+        
+  </div>
+  <div class="container profile " style="margin-right:150px;">
+    <div class=" inf-content">
+        <div class="row">
+            <div class="col-1">
+              
+              <img alt="" style="width:200px;" title="" class="img-circle " src="/images/user.png" > 
+             <span class="head"><h2>PROFILE</strong><br></h2>
+          </div>
+            <div class="col-12">
+              
+              <form id="edit_profile" class="form-horizontal"  role="form" method="post" action="/edit_profile">
+               
+                <table class="table  table-user-information">
+              
+                    <tbody>
+                       <tr>
+                        <td></td>
+                        <td></td>
+                        <td> <td >
+                          <button id="save_profile" class="btn btn-success" type="submit"><span class="btn-save">Save Profile</span></button>
+                        </td></td>
+                       </tr>
+                        <tr>    
+                            <td>
+                                <strong>
+                                   </span>    
+                                    Name:                                                
+                                </strong>
+                            </td>
+                            <td >
+                              <input name="first_name" class="save"  type="text" value="<%=info[0].first_name%>">  
+                            </td>
+                           
+                        </tr>
+                        <tr>        
+                            <td>
+                                <strong>
+                                     
+                                    Last Name:                                                
+                                </strong>
+                            </td>
+                            <td >
+                              <input name="last_name" class="save"  type="text" value="<%=info[0].last_name%>">  
+                            </td>
+                           
+                        </tr>
+    
+                        <tr>        
+                            <td>
+                                <strong>
+                                  
+                                    Email:                                               
+                                </strong>
+                            </td>
+                            <td>
+                              <input name="user_name" class="save"  type="email"  value="<%=info[0].user_name%>">  
+                            </td>
+                           
+                        </tr>
+    
+    
+                        <tr>        
+                            <td>
+                                <strong>
+                                   
+                                    Wallet:                                                
+                                </strong>
+                            </td>
+                            <td>
+                              <input id ="edit_wallet" name="wallet" class="save"  type="number"  value="<%=info[0].wallet%>">
+                               
+                             
+                            </td>
+                           
+                        </tr>
+                        <tr>        
+                            <td>
+                                <strong>
+                                  
+                                    Password:                                                
+                                </strong>
+                            </td>
+                            <td >
+                              <input  name="password" class="save"  type="text"   value="<%=info[0].password%>">  
+                            </td>
+                           
+                        </tr>
+                                                           
+                    </tbody>
+                </table>
+              </form>
+            </div>
+        </div>
+    </div>
+    </div>                                 
+    
+			
+		<footer class="bg-light text-center text-lg-start">
+			<!-- Copyright -->
+			<div class="text-center p-3">
+				© 2023 Copyright
+				<a class="text-light" href="/home">DSES Finance</a>
+			</div>
+			<!-- Copyright -->
+		</footer>
+	
+ 	
+ 
+	</div>
+	</body>
+</html>
